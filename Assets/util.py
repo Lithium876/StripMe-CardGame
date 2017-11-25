@@ -37,3 +37,13 @@ def getCardRate(card):
 		return payCards.get(card[1])
 	else:
 		return 0
+
+def fillHand(queue,lst):
+	'''
+	Function that accepts a queue and a list of cards as its arguments.
+ 	It returns the queue argument with the cards from the list of cards 
+ 	added to the queue
+	'''
+	for element in lst:
+		enqueue(queue,element)
+	return queue
