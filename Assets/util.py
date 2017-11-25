@@ -59,3 +59,13 @@ def prepPlayers():
 	player1Hand=fillHand(makeQueue(),deal(shuffledDeck,26,1)[0][0])
 	player2Hand=fillHand(makeQueue(),deal(shuffledDeck,26,1)[0][0])
 	return [player1Hand,player2Hand]
+
+def placeCard(playerHand, discardPile):
+	'''
+	Function that accepts a player's hand of cards and the discard pile as arguments. 
+	It then adds the card at the top of that player's hand and places it at the top 
+	of the discard pile. It returns the updated player's hand of cards and the 
+	updated discard pile. 
+	'''
+	push(discardPile,dequeue(playerHand))
+	return playerHand, discardPile
