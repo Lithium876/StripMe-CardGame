@@ -4,6 +4,18 @@ import random
 def genKey(upperlimit):
     return (random.randint(0,upperlimit))
 
+# display a full deck of cards with suit icons
+def displayDeck(deck):
+    def empty_Deck(deck):
+        return deck==[]
+    def formatCard(card):
+        return card[1]+getSuitIcon(card[0])    
+    if empty_Deck(deck):
+        raise Exception('Cannot display an empty deck of cards')
+    else:
+        formattedDeck=[formatCard(c) for c in deck]
+        print (formattedDeck[:13],'\n',formattedDeck[13:26],'\n',formattedDeck[26:39],'\n', formattedDeck[39:])
+
 # create a deck of 52 cards
 def new_Deck():
     suits=["H","C","S","D"]
@@ -17,6 +29,11 @@ def new_Deck():
             deck[k]=(suits[i],facevalue[j])
             k+=1
     return deck
+
+#use the UNICODE value to display a suit
+def getSuitIcon(suit):
+    suitIcon={'H':u"\u2665",'C':u"\u2663",'S':u"\u2660",'D':u"\u2666"}
+    return suitIcon[suit]
 
 # shuffle repeatedly splits a deck in half, then interleaves the
 # two half-decks together, nbrRounds times
@@ -60,14 +77,3 @@ def shuffle(nbrRounds,deck):
     else:
         return shuffle(nbrRounds - 1, interleave(split(deck)))
 
-# display a full deck of cards with suit icons
-def displayDeck(deck):
-    def empty_Deck(deck):
-        return deck==[]
-    def formatCard(card):
-        return card[1]+getSuitIcon(card[0])    
-    if empty_Deck(deck):
-        raise Exception('Cannot display an empty deck of cards')
-    else:
-        formattedDeck=[formatCard(c) for c in deck]
-        print (formattedDeck[:13],'\n',formattedDeck[13:26],'\n',formattedDeck[26:39],'\n', formattedDeck[39:])
