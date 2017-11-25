@@ -1,5 +1,9 @@
 import random
 
+# generate a random number between 0 and upperlimit
+def genKey(upperlimit):
+    return (random.randint(0,upperlimit))
+
 # create a deck of 52 cards
 def new_Deck():
     suits=["H","C","S","D"]
@@ -55,3 +59,15 @@ def shuffle(nbrRounds,deck):
         return deck
     else:
         return shuffle(nbrRounds - 1, interleave(split(deck)))
+
+# display a full deck of cards with suit icons
+def displayDeck(deck):
+    def empty_Deck(deck):
+        return deck==[]
+    def formatCard(card):
+        return card[1]+getSuitIcon(card[0])    
+    if empty_Deck(deck):
+        raise Exception('Cannot display an empty deck of cards')
+    else:
+        formattedDeck=[formatCard(c) for c in deck]
+        print (formattedDeck[:13],'\n',formattedDeck[13:26],'\n',formattedDeck[26:39],'\n', formattedDeck[39:])
