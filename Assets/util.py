@@ -47,3 +47,15 @@ def fillHand(queue,lst):
 	for element in lst:
 		enqueue(queue,element)
 	return queue
+
+def prepPlayers():
+	'''
+	Function that creates a new deck of cards, shuffles it, and deals 26 cards 
+	to each of 2 players. It then fills the players' hands of cards,
+	using fillHand, and returns the filled hands as a tuple.
+	'''
+	Deck = new_Deck()
+	shuffledDeck = shuffle(10, Deck)
+	player1Hand=fillHand(makeQueue(),deal(shuffledDeck,26,1)[0][0])
+	player2Hand=fillHand(makeQueue(),deal(shuffledDeck,26,1)[0][0])
+	return [player1Hand,player2Hand]
