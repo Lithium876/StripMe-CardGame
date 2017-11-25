@@ -13,3 +13,13 @@ There are 2 groups of cards, pay cards and ordinary cards. Pay cards are Jacks, 
 * 1 ordinary card for a jack. 
 
 When the payment is completed the person who played the pay card takes the entire discard pile and adds it face down to the bottom of their hand. If a pay card appears while a player is making a payment, the previous pay card is canceled and the opponent now has to pay for this new pay card. This continues until a payment is completed by one of the players. The player who first runs out of cards loses. 
+
+## Requirements
+python 3.x
+
+## Usage
+```
+python stripMe.py
+```
+## Preview
+![alt text](img/1.PNG)
