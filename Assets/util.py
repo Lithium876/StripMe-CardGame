@@ -27,3 +27,13 @@ def isPayCard(card):
 		return True
 	else:
 		return False
+	
+def getCardRate(card):
+	'''
+	Function which accepts a card as its only argument. If the card argument
+	is a pay card, it returns its pay rate, otherwise it returns 0
+	'''
+	if isPayCard(card):
+		return payCards.get(card[1])
+	else:
+		return 0
