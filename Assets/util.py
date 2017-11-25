@@ -69,3 +69,14 @@ def placeCard(playerHand, discardPile):
 	'''
 	push(discardPile,dequeue(playerHand))
 	return playerHand, discardPile
+
+def playCard(player, hand, discardPile):
+	'''
+	Function that takes 3 arguments: the current player, their hand of cards, 
+	the discard pile. It places the card using placeCard, displays what card 
+	was played, returns the updated player's hand of cards and the updated discard
+	pile. Display its face value and its suit icon.
+	'''
+	update = placeCard(hand, discardPile)
+	played = top(discardPile)
+	return "Player {},\nPlayed the {} {}".format(player, played[1], getSuitIcon(played[0])), update
