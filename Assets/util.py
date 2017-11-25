@@ -80,3 +80,16 @@ def playCard(player, hand, discardPile):
 	update = placeCard(hand, discardPile)
 	played = top(discardPile)
 	return "Player {},\nPlayed the {} {}".format(player, played[1], getSuitIcon(played[0])), update
+
+def takePayment(playerHand, discardPile):
+	'''
+	Function that accepts a player's hand of cards and the discard pile 
+	as arguments. It adds all of the cards, one at a time, from the discard 
+	pile to the bottom of the player's hand of cards.
+	'''
+	n = len(discardPile[1])
+	reversedStack = reverseStack(discardPile)
+	for _ in range(n):
+		element = pop(reversedStack)
+		enqueue(playerHand, element)
+	return playerHand, discardPile
