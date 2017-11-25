@@ -77,3 +77,16 @@ def shuffle(nbrRounds,deck):
     else:
         return shuffle(nbrRounds - 1, interleave(split(deck)))
 
+# Using deck of cards 'deck', deal 'nbrCards' cards to each of the 'nbrPlayers' players
+# Return the tuple [[a list of lists, where each list represents the hand of each player],[list of cards that have not been dealt]]
+def deal(deck,nbrCards,nbrPlayers):
+    if nbrCards*nbrPlayers <= len(deck):
+        dealtCards=[]
+        for i in range(0,nbrPlayers):
+            dealtCards.append([])
+        for i in range(0,nbrCards):
+            for j in range(0,nbrPlayers):
+                dealtCards[j].append(deck.pop())
+        return dealtCards,deck
+    else:
+        raise Exception("Not enough cards in the deck")
